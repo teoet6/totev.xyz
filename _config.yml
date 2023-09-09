@@ -1,7 +1,5 @@
 permalink: /:title/
 defaults:
   -
-    scope:
-      path: "_posts"
     values:
       layout: "none"
