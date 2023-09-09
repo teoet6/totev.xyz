@@ -1,5 +1,5 @@
 permalink: /:title/
-defaults:
-  -
-    values:
-      layout: "none"
+# defaults:
+#   -
+#     values:
+#       layout: "none"
