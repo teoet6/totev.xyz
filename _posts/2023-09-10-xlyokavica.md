@@ -42,7 +42,7 @@ latinicata e kato da sravnyavame kustyum, premeren i uxit za toqno opredelen qov
 magazina -- kirilicata e premerena i uxita za nas i e po-udobna. Poradi tezi priqini mnogo hora,
 vklyuqitelno i az, sa protiv pisaneto na xlyokavica.
 
-Edinstvenoto, koeto protivnicite na xlyokavicata mogat da napravyat, e da neya polzvat. Tova obaqe
+Edinstvenoto, koeto protivnicite na xlyokavicata mogat da napravyat, e da ne ya polzvat. Tova obaqe
 nyama da spre drugite. Vwpreki qe swm protiv xlyokavicata, swm rexil da uqastvam v neynoto razvitie,
 zaxtoto mi e intersno.
 
