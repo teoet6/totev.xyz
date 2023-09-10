@@ -6,7 +6,7 @@ title: Съдържание
 
 ## 📝 Статии
 
-{% for post in site.posts reversed %}
+{% for post in site.posts %}
 ### [{% include lat2cyr lat=post.title %} | {{ post.date | date: "%Y-%m-%d" }}]({{ post.url }})
 
 {{ post.excerpt }}
