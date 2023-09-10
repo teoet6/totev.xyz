@@ -118,7 +118,7 @@ Strategiyata e mnogo po-dobra ot zakona za transliteraciyata. Zakonwt glasi sled
 Tova e ot nay-loxite vwzmojni strategii. Ima qetiri dvuznaka, _a_ se izpolzva za dva zvuka i dve
 izklyuqeniya. Liqno az mislya, qe _a_ e ujasno xlyokavizirane na _ъ_. Zakonwt yavno misli swxtoto,
 zaxtoto tam e edno ot izklyuqeniyata. Osobeno twpo e xlyokaviziraneto na _ц_, twy kato pozvolyava
-dvusmislieto _otselvane → оцелване, отселване_. Izklyuqenieto, kwsaexto _я_, e nenujno i samo
+dvusmislieto _otselvane → оцелване, отселване_. Izklyuqenieto, kasaexto _я_, e nenujno i samo
 uslojnyava sistemata. Az imam teoriya, qe tazi xlyokavizaciya e naroqno izmislena da e kolkoto se
 moje, po-loxa...
 
