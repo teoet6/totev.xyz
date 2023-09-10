@@ -75,7 +75,7 @@ Spored men, dobro xlyokavizirane ima slednite priznaci:
   zapisvaneto na _я_, _ю_, i _щ_, twy kato te sa dva zvuka.
 - Vwzmojno nay-malko izklyuqeniya ot obxtoto pravilo.
 - **Lesno _otxlyokavizirane_** -- dokolkoto znam az swm pwrviyat koyto twrsi takova. Pod
-  _otxlyokavizirane_ imam predvid vwzmojnostta da se vwzstanovi originalniyat tekst. Stilovete,
+  _otxlyokavizirane_ imam predvid vwzmojnostta da se vwzstanovi originalniya tekst. Stilovete,
   otgovaryaxti na tozi priznak mogat da bwdat mnogo polezni za tehniqeski celi.
 - Izpolzvane samo na angliyskata latinica
 
