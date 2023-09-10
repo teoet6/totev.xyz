@@ -17,7 +17,7 @@ taka qe pone imenata si tryabva da mojem da napixem na tyahnata azbuka.
 
 ## Kulturni predpostavki
 
-Ograniqeniyata na telekomunikacionnite sistemi veqe poqti ne swxtestvuvat, a obiknovenniyat qovek
+Ograniqeniyata na telekomunikacionnite sistemi veqe poqti ne swxtestvuvat, a obiknoveniyat qovek
 ryadko tryabva da si napixe imeto, taka qe qujdenec da go proqete. Gledayki samo tezi dva priznaka,
 bihme oqakvali qe poqti nikoy ne pixe na xlyokavica v dnexno vreme. Tova ne e taka.
 
