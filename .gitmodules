@@ -1,0 +1,3 @@
+[submodule "laser-game"]
+	path = laser-game
+	url = https://github.com/teoet6/laser-game
