@@ -8,7 +8,7 @@ title: Съдържание
 
 ### [Игра с лазери](/laser-game)
 
-## 📝 Статии
+## 📝 Писи
 
 {% for post in site.posts %}
 ### [{{ post.date | date: "%Y-%m-%d" }} | {% include lat2cyr lat=post.title %}]({{ post.url }})
