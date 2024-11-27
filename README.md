@@ -1,1 +1,1 @@
-това е (сайта ми)[https://totev.xyz]
+това е [сайта ми](https://totev.xyz)
