@@ -183,7 +183,7 @@
 
 	<textarea id="tekstovo-pole"></textarea>
 	<button onclick="xlyokaviziray()">xlyokaviziray!</button>
-	<button onclick="kriliziray()">кирилизирай!</button>
+	<button onclick="kiriliziray()">кирилизирай!</button>
 </div>
 
 Xlyokavicata e nerazdelna i interesna qast ot bwlgarskata kultura. V tazi statiya razglejdam
