@@ -181,7 +181,8 @@
 		}
 	</script>
 
-	<textarea id="tekstovo-pole"></textarea>
+	<textarea style="width:100%" id="tekstovo-pole"></textarea>
+	<br>
 	<button onclick="xlyokaviziray()">xlyokaviziray!</button>
 	<button onclick="kiriliziray()">кирилизирай!</button>
 </div>
