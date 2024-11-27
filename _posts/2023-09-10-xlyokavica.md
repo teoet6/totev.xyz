@@ -1,3 +1,191 @@
+<div>
+	<script>
+		const xlyokaviziray = () => {
+			let stoynost = document.getElementById("tekstovo-pole").value;
+
+			stoynost = stoynost.replaceAll("а", "a");
+			stoynost = stoynost.replaceAll("б", "b");
+			stoynost = stoynost.replaceAll("в", "v");
+			stoynost = stoynost.replaceAll("г", "g");
+			stoynost = stoynost.replaceAll("д", "d");
+			stoynost = stoynost.replaceAll("е", "e");
+			stoynost = stoynost.replaceAll("ж", "j");
+			stoynost = stoynost.replaceAll("з", "z");
+			stoynost = stoynost.replaceAll("и", "i");
+			stoynost = stoynost.replaceAll("й", "y");
+			stoynost = stoynost.replaceAll("к", "k");
+			stoynost = stoynost.replaceAll("л", "l");
+			stoynost = stoynost.replaceAll("м", "m");
+			stoynost = stoynost.replaceAll("н", "n");
+			stoynost = stoynost.replaceAll("о", "o");
+			stoynost = stoynost.replaceAll("п", "p");
+			stoynost = stoynost.replaceAll("р", "r");
+			stoynost = stoynost.replaceAll("с", "s");
+			stoynost = stoynost.replaceAll("т", "t");
+			stoynost = stoynost.replaceAll("у", "u");
+			stoynost = stoynost.replaceAll("ф", "f");
+			stoynost = stoynost.replaceAll("х", "h");
+			stoynost = stoynost.replaceAll("ц", "c");
+			stoynost = stoynost.replaceAll("ч", "q");
+			stoynost = stoynost.replaceAll("ш", "x");
+			stoynost = stoynost.replaceAll("щ", "xt");
+			stoynost = stoynost.replaceAll("ъ", "w");
+			stoynost = stoynost.replaceAll("ь", "y");
+			stoynost = stoynost.replaceAll("ю", "yu");
+			stoynost = stoynost.replaceAll("я", "ya");
+
+			stoynost = stoynost.replaceAll("А", "A");
+			stoynost = stoynost.replaceAll("Б", "B");
+			stoynost = stoynost.replaceAll("В", "V");
+			stoynost = stoynost.replaceAll("Г", "G");
+			stoynost = stoynost.replaceAll("Д", "D");
+			stoynost = stoynost.replaceAll("Е", "E");
+			stoynost = stoynost.replaceAll("Ж", "J");
+			stoynost = stoynost.replaceAll("З", "Z");
+			stoynost = stoynost.replaceAll("И", "I");
+			stoynost = stoynost.replaceAll("Й", "Y");
+			stoynost = stoynost.replaceAll("К", "K");
+			stoynost = stoynost.replaceAll("Л", "L");
+			stoynost = stoynost.replaceAll("М", "M");
+			stoynost = stoynost.replaceAll("Н", "N");
+			stoynost = stoynost.replaceAll("О", "O");
+			stoynost = stoynost.replaceAll("П", "P");
+			stoynost = stoynost.replaceAll("Р", "R");
+			stoynost = stoynost.replaceAll("С", "S");
+			stoynost = stoynost.replaceAll("Т", "T");
+			stoynost = stoynost.replaceAll("У", "U");
+			stoynost = stoynost.replaceAll("Ф", "F");
+			stoynost = stoynost.replaceAll("Х", "H");
+			stoynost = stoynost.replaceAll("Ц", "C");
+			stoynost = stoynost.replaceAll("Ч", "Q");
+			stoynost = stoynost.replaceAll("Ш", "X");
+			stoynost = stoynost.replaceAll("Щ", "Xt");
+			stoynost = stoynost.replaceAll("Ъ", "W");
+			stoynost = stoynost.replaceAll("Ь", "Y");
+			stoynost = stoynost.replaceAll("Ю", "Yu");
+			stoynost = stoynost.replaceAll("Я", "Ya");
+
+			document.getElementById("tekstovo-pole").value = stoynost;
+		}
+
+		const kiriliziray = () => {
+			let stoynost = document.getElementById("tekstovo-pole").value;
+
+			stoynost = stoynost.replaceAll("ya", "я");
+			stoynost = stoynost.replaceAll("Ya", "Я");
+
+			stoynost = stoynost.replaceAll("yu", "ю");
+			stoynost = stoynost.replaceAll("Yu", "Ю");
+
+			stoynost = stoynost.replaceAll("xty", "щь");
+			stoynost = stoynost.replaceAll("Xty", "Щь");
+
+			stoynost = stoynost.replaceAll("by", "бь");
+			stoynost = stoynost.replaceAll("vy", "вь");
+			stoynost = stoynost.replaceAll("gy", "гь");
+			stoynost = stoynost.replaceAll("dy", "дь");
+			stoynost = stoynost.replaceAll("jy", "жь");
+			stoynost = stoynost.replaceAll("zy", "зь");
+			stoynost = stoynost.replaceAll("ky", "кь");
+			stoynost = stoynost.replaceAll("ly", "ль");
+			stoynost = stoynost.replaceAll("my", "мь");
+			stoynost = stoynost.replaceAll("ny", "нь");
+			stoynost = stoynost.replaceAll("py", "пь");
+			stoynost = stoynost.replaceAll("ry", "рь");
+			stoynost = stoynost.replaceAll("sy", "сь");
+			stoynost = stoynost.replaceAll("ty", "ть");
+			stoynost = stoynost.replaceAll("fy", "фь");
+			stoynost = stoynost.replaceAll("hy", "хь");
+			stoynost = stoynost.replaceAll("cy", "ць");
+			stoynost = stoynost.replaceAll("qy", "чь");
+			stoynost = stoynost.replaceAll("xy", "шь");
+
+			stoynost = stoynost.replaceAll("By", "Бь");
+			stoynost = stoynost.replaceAll("Vy", "Вь");
+			stoynost = stoynost.replaceAll("Gy", "Гь");
+			stoynost = stoynost.replaceAll("Dy", "Дь");
+			stoynost = stoynost.replaceAll("Jy", "Жь");
+			stoynost = stoynost.replaceAll("Zy", "Зь");
+			stoynost = stoynost.replaceAll("Ky", "Кь");
+			stoynost = stoynost.replaceAll("Ly", "Ль");
+			stoynost = stoynost.replaceAll("My", "Мь");
+			stoynost = stoynost.replaceAll("Ny", "Нь");
+			stoynost = stoynost.replaceAll("Py", "Пь");
+			stoynost = stoynost.replaceAll("Ry", "Рь");
+			stoynost = stoynost.replaceAll("Sy", "Сь");
+			stoynost = stoynost.replaceAll("Ty", "Ть");
+			stoynost = stoynost.replaceAll("Fy", "Фь");
+			stoynost = stoynost.replaceAll("Hy", "Хь");
+			stoynost = stoynost.replaceAll("Cy", "Ць");
+			stoynost = stoynost.replaceAll("Qy", "Чь");
+			stoynost = stoynost.replaceAll("Xy", "Шь");
+
+			stoynost = stoynost.replaceAll("xt", "щ");
+			stoynost = stoynost.replaceAll("Xt", "Щ");
+
+			stoynost = stoynost.replaceAll("a", "а");
+			stoynost = stoynost.replaceAll("b", "б");
+			stoynost = stoynost.replaceAll("v", "в");
+			stoynost = stoynost.replaceAll("g", "г");
+			stoynost = stoynost.replaceAll("d", "д");
+			stoynost = stoynost.replaceAll("e", "е");
+			stoynost = stoynost.replaceAll("j", "ж");
+			stoynost = stoynost.replaceAll("z", "з");
+			stoynost = stoynost.replaceAll("i", "и");
+			stoynost = stoynost.replaceAll("y", "й");
+			stoynost = stoynost.replaceAll("k", "к");
+			stoynost = stoynost.replaceAll("l", "л");
+			stoynost = stoynost.replaceAll("m", "м");
+			stoynost = stoynost.replaceAll("n", "н");
+			stoynost = stoynost.replaceAll("o", "о");
+			stoynost = stoynost.replaceAll("p", "п");
+			stoynost = stoynost.replaceAll("r", "р");
+			stoynost = stoynost.replaceAll("s", "с");
+			stoynost = stoynost.replaceAll("t", "т");
+			stoynost = stoynost.replaceAll("u", "у");
+			stoynost = stoynost.replaceAll("f", "ф");
+			stoynost = stoynost.replaceAll("h", "х");
+			stoynost = stoynost.replaceAll("c", "ц");
+			stoynost = stoynost.replaceAll("q", "ч");
+			stoynost = stoynost.replaceAll("x", "ш");
+			stoynost = stoynost.replaceAll("w", "ъ");
+
+			stoynost = stoynost.replaceAll("A", "А");
+			stoynost = stoynost.replaceAll("B", "Б");
+			stoynost = stoynost.replaceAll("V", "В");
+			stoynost = stoynost.replaceAll("G", "Г");
+			stoynost = stoynost.replaceAll("D", "Д");
+			stoynost = stoynost.replaceAll("E", "Е");
+			stoynost = stoynost.replaceAll("J", "Ж");
+			stoynost = stoynost.replaceAll("Z", "З");
+			stoynost = stoynost.replaceAll("I", "И");
+			stoynost = stoynost.replaceAll("Y", "Й");
+			stoynost = stoynost.replaceAll("K", "К");
+			stoynost = stoynost.replaceAll("L", "Л");
+			stoynost = stoynost.replaceAll("M", "М");
+			stoynost = stoynost.replaceAll("N", "Н");
+			stoynost = stoynost.replaceAll("O", "О");
+			stoynost = stoynost.replaceAll("P", "П");
+			stoynost = stoynost.replaceAll("R", "Р");
+			stoynost = stoynost.replaceAll("S", "С");
+			stoynost = stoynost.replaceAll("T", "Т");
+			stoynost = stoynost.replaceAll("U", "У");
+			stoynost = stoynost.replaceAll("F", "Ф");
+			stoynost = stoynost.replaceAll("H", "Х");
+			stoynost = stoynost.replaceAll("C", "Ц");
+			stoynost = stoynost.replaceAll("Q", "Ч");
+			stoynost = stoynost.replaceAll("X", "Ш");
+			stoynost = stoynost.replaceAll("W", "Ъ");
+
+			document.getElementById("tekstovo-pole").value = stoynost;
+		}
+	</script>
+
+	<textarea id="tekstovo-pole"></textarea>
+	<button onclick="xlyokaviziray()">xlyokaviziray!</button>
+	<button onclick="kriliziray()">кирилизирай!</button>
+</div>
+
 Xlyokavicata e nerazdelna i interesna qast ot bwlgarskata kultura. V tazi statiya razglejdam
 razliqni stilove, predlagam nov takwv i davam cyalostnoto si mnenie za fenomena, vwpreki qe nikoy
 ne mi go e iskal.
