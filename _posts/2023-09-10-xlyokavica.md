@@ -65,7 +65,9 @@
 			stoynost = stoynost.replaceAll("Ю", "Yu");
 			stoynost = stoynost.replaceAll("Я", "Ya");
 
-			document.getElementById("tekstovo-pole").value = stoynost;
+			tekstovoPole = document.getElementById("tekstovo-pole");
+			tekstovoPole.value = stoynost;
+			orazmeri(tekstovoPole);
 		}
 
 		const kiriliziray = () => {
@@ -177,11 +179,19 @@
 			stoynost = stoynost.replaceAll("X", "Ш");
 			stoynost = stoynost.replaceAll("W", "Ъ");
 
-			document.getElementById("tekstovo-pole").value = stoynost;
+			tekstovoPole = document.getElementById("tekstovo-pole");
+			tekstovoPole.value = stoynost;
+			orazmeri(tekstovoPole);
+		}
+
+		const orazmeri = (pole) => {
+			if (pole.scrollHeight > pole.clientHeight)
+				pole.style.height = `${pole.scrollHeight}px`;
+			}
 		}
 	</script>
 
-	<textarea spellcheck="false" style="width: 100%; resize: vertical" id="tekstovo-pole"></textarea>
+	<textarea oninput="orazmeri(this)" spellcheck="false" style="width: 100%; resize: none" id="tekstovo-pole"></textarea>
 	<br>
 	<button onclick="xlyokaviziray()">xlyokaviziray!</button>
 	<button onclick="kiriliziray()">кирилизирай!</button>
