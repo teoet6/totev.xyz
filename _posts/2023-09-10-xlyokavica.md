@@ -185,7 +185,7 @@
 		}
 
 		const orazmeri = (pole) => {
-			if (pole.scrollHeight > pole.clientHeight)
+			if (pole.scrollHeight > pole.clientHeight) {
 				pole.style.height = `${pole.scrollHeight}px`;
 			}
 		}
