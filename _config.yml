@@ -1,6 +1,0 @@
-permalink: /:title/
-future: true
-# defaults:
-#   -
-#     values:
-#       layout: "none"

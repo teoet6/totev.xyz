@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Шльокавица - Тотев</title>
+		<link href="/style.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<header>
+			<h1><a href="">Шльокавица</a></h1>
+			<h1><a href="/">Тотев</a></h1>
+		</header>
+		<main>
+			<div>
+	<script>
+		const xlyokaviziray = () => {
+			let stoynost = document.getElementById("tekstovo-pole").value;
+
+			stoynost = stoynost.replaceAll("а", "a");
+			stoynost = stoynost.replaceAll("б", "b");
+			stoynost = stoynost.replaceAll("в", "v");
+			stoynost = stoynost.replaceAll("г", "g");
+			stoynost = stoynost.replaceAll("д", "d");
+			stoynost = stoynost.replaceAll("е", "e");
+			stoynost = stoynost.replaceAll("ж", "j");
+			stoynost = stoynost.replaceAll("з", "z");
+			stoynost = stoynost.replaceAll("и", "i");
+			stoynost = stoynost.replaceAll("й", "y");
+			stoynost = stoynost.replaceAll("к", "k");
+			stoynost = stoynost.replaceAll("л", "l");
+			stoynost = stoynost.replaceAll("м", "m");
+			stoynost = stoynost.replaceAll("н", "n");
+			stoynost = stoynost.replaceAll("о", "o");
+			stoynost = stoynost.replaceAll("п", "p");
+			stoynost = stoynost.replaceAll("р", "r");
+			stoynost = stoynost.replaceAll("с", "s");
+			stoynost = stoynost.replaceAll("т", "t");
+			stoynost = stoynost.replaceAll("у", "u");
+			stoynost = stoynost.replaceAll("ф", "f");
+			stoynost = stoynost.replaceAll("х", "h");
+			stoynost = stoynost.replaceAll("ц", "c");
+			stoynost = stoynost.replaceAll("ч", "q");
+			stoynost = stoynost.replaceAll("ш", "x");
+			stoynost = stoynost.replaceAll("щ", "xt");
+			stoynost = stoynost.replaceAll("ъ", "w");
+			stoynost = stoynost.replaceAll("ь", "y");
+			stoynost = stoynost.replaceAll("ю", "yu");
+			stoynost = stoynost.replaceAll("я", "ya");
+
+			stoynost = stoynost.replaceAll("А", "A");
+			stoynost = stoynost.replaceAll("Б", "B");
+			stoynost = stoynost.replaceAll("В", "V");
+			stoynost = stoynost.replaceAll("Г", "G");
+			stoynost = stoynost.replaceAll("Д", "D");
+			stoynost = stoynost.replaceAll("Е", "E");
+			stoynost = stoynost.replaceAll("Ж", "J");
+			stoynost = stoynost.replaceAll("З", "Z");
+			stoynost = stoynost.replaceAll("И", "I");
+			stoynost = stoynost.replaceAll("Й", "Y");
+			stoynost = stoynost.replaceAll("К", "K");
+			stoynost = stoynost.replaceAll("Л", "L");
+			stoynost = stoynost.replaceAll("М", "M");
+			stoynost = stoynost.replaceAll("Н", "N");
+			stoynost = stoynost.replaceAll("О", "O");
+			stoynost = stoynost.replaceAll("П", "P");
+			stoynost = stoynost.replaceAll("Р", "R");
+			stoynost = stoynost.replaceAll("С", "S");
+			stoynost = stoynost.replaceAll("Т", "T");
+			stoynost = stoynost.replaceAll("У", "U");
+			stoynost = stoynost.replaceAll("Ф", "F");
+			stoynost = stoynost.replaceAll("Х", "H");
+			stoynost = stoynost.replaceAll("Ц", "C");
+			stoynost = stoynost.replaceAll("Ч", "Q");
+			stoynost = stoynost.replaceAll("Ш", "X");
+			stoynost = stoynost.replaceAll("Щ", "Xt");
+			stoynost = stoynost.replaceAll("Ъ", "W");
+			stoynost = stoynost.replaceAll("Ь", "Y");
+			stoynost = stoynost.replaceAll("Ю", "Yu");
+			stoynost = stoynost.replaceAll("Я", "Ya");
+
+			tekstovoPole = document.getElementById("tekstovo-pole");
+			tekstovoPole.value = stoynost;
+			orazmeri(tekstovoPole);
+		}
+
+		const kiriliziray = () => {
+			let stoynost = document.getElementById("tekstovo-pole").value;
+
+			stoynost = stoynost.replaceAll("ya", "я");
+			stoynost = stoynost.replaceAll("Ya", "Я");
+
+			stoynost = stoynost.replaceAll("yu", "ю");
+			stoynost = stoynost.replaceAll("Yu", "Ю");
+
+			stoynost = stoynost.replaceAll("xty", "щь");
+			stoynost = stoynost.replaceAll("Xty", "Щь");
+
+			stoynost = stoynost.replaceAll("by", "бь");
+			stoynost = stoynost.replaceAll("vy", "вь");
+			stoynost = stoynost.replaceAll("gy", "гь");
+			stoynost = stoynost.replaceAll("dy", "дь");
+			stoynost = stoynost.replaceAll("jy", "жь");
+			stoynost = stoynost.replaceAll("zy", "зь");
+			stoynost = stoynost.replaceAll("ky", "кь");
+			stoynost = stoynost.replaceAll("ly", "ль");
+			stoynost = stoynost.replaceAll("my", "мь");
+			stoynost = stoynost.replaceAll("ny", "нь");
+			stoynost = stoynost.replaceAll("py", "пь");
+			stoynost = stoynost.replaceAll("ry", "рь");
+			stoynost = stoynost.replaceAll("sy", "сь");
+			stoynost = stoynost.replaceAll("ty", "ть");
+			stoynost = stoynost.replaceAll("fy", "фь");
+			stoynost = stoynost.replaceAll("hy", "хь");
+			stoynost = stoynost.replaceAll("cy", "ць");
+			stoynost = stoynost.replaceAll("qy", "чь");
+			stoynost = stoynost.replaceAll("xy", "шь");
+
+			stoynost = stoynost.replaceAll("By", "Бь");
+			stoynost = stoynost.replaceAll("Vy", "Вь");
+			stoynost = stoynost.replaceAll("Gy", "Гь");
+			stoynost = stoynost.replaceAll("Dy", "Дь");
+			stoynost = stoynost.replaceAll("Jy", "Жь");
+			stoynost = stoynost.replaceAll("Zy", "Зь");
+			stoynost = stoynost.replaceAll("Ky", "Кь");
+			stoynost = stoynost.replaceAll("Ly", "Ль");
+			stoynost = stoynost.replaceAll("My", "Мь");
+			stoynost = stoynost.replaceAll("Ny", "Нь");
+			stoynost = stoynost.replaceAll("Py", "Пь");
+			stoynost = stoynost.replaceAll("Ry", "Рь");
+			stoynost = stoynost.replaceAll("Sy", "Сь");
+			stoynost = stoynost.replaceAll("Ty", "Ть");
+			stoynost = stoynost.replaceAll("Fy", "Фь");
+			stoynost = stoynost.replaceAll("Hy", "Хь");
+			stoynost = stoynost.replaceAll("Cy", "Ць");
+			stoynost = stoynost.replaceAll("Qy", "Чь");
+			stoynost = stoynost.replaceAll("Xy", "Шь");
+
+			stoynost = stoynost.replaceAll("xt", "щ");
+			stoynost = stoynost.replaceAll("Xt", "Щ");
+
+			stoynost = stoynost.replaceAll("a", "а");
+			stoynost = stoynost.replaceAll("b", "б");
+			stoynost = stoynost.replaceAll("v", "в");
+			stoynost = stoynost.replaceAll("g", "г");
+			stoynost = stoynost.replaceAll("d", "д");
+			stoynost = stoynost.replaceAll("e", "е");
+			stoynost = stoynost.replaceAll("j", "ж");
+			stoynost = stoynost.replaceAll("z", "з");
+			stoynost = stoynost.replaceAll("i", "и");
+			stoynost = stoynost.replaceAll("y", "й");
+			stoynost = stoynost.replaceAll("k", "к");
+			stoynost = stoynost.replaceAll("l", "л");
+			stoynost = stoynost.replaceAll("m", "м");
+			stoynost = stoynost.replaceAll("n", "н");
+			stoynost = stoynost.replaceAll("o", "о");
+			stoynost = stoynost.replaceAll("p", "п");
+			stoynost = stoynost.replaceAll("r", "р");
+			stoynost = stoynost.replaceAll("s", "с");
+			stoynost = stoynost.replaceAll("t", "т");
+			stoynost = stoynost.replaceAll("u", "у");
+			stoynost = stoynost.replaceAll("f", "ф");
+			stoynost = stoynost.replaceAll("h", "х");
+			stoynost = stoynost.replaceAll("c", "ц");
+			stoynost = stoynost.replaceAll("q", "ч");
+			stoynost = stoynost.replaceAll("x", "ш");
+			stoynost = stoynost.replaceAll("w", "ъ");
+
+			stoynost = stoynost.replaceAll("A", "А");
+			stoynost = stoynost.replaceAll("B", "Б");
+			stoynost = stoynost.replaceAll("V", "В");
+			stoynost = stoynost.replaceAll("G", "Г");
+			stoynost = stoynost.replaceAll("D", "Д");
+			stoynost = stoynost.replaceAll("E", "Е");
+			stoynost = stoynost.replaceAll("J", "Ж");
+			stoynost = stoynost.replaceAll("Z", "З");
+			stoynost = stoynost.replaceAll("I", "И");
+			stoynost = stoynost.replaceAll("Y", "Й");
+			stoynost = stoynost.replaceAll("K", "К");
+			stoynost = stoynost.replaceAll("L", "Л");
+			stoynost = stoynost.replaceAll("M", "М");
+			stoynost = stoynost.replaceAll("N", "Н");
+			stoynost = stoynost.replaceAll("O", "О");
+			stoynost = stoynost.replaceAll("P", "П");
+			stoynost = stoynost.replaceAll("R", "Р");
+			stoynost = stoynost.replaceAll("S", "С");
+			stoynost = stoynost.replaceAll("T", "Т");
+			stoynost = stoynost.replaceAll("U", "У");
+			stoynost = stoynost.replaceAll("F", "Ф");
+			stoynost = stoynost.replaceAll("H", "Х");
+			stoynost = stoynost.replaceAll("C", "Ц");
+			stoynost = stoynost.replaceAll("Q", "Ч");
+			stoynost = stoynost.replaceAll("X", "Ш");
+			stoynost = stoynost.replaceAll("W", "Ъ");
+
+			tekstovoPole = document.getElementById("tekstovo-pole");
+			tekstovoPole.value = stoynost;
+			orazmeri(tekstovoPole);
+		}
+
+		const orazmeri = (pole) => {
+			if (pole.scrollHeight > pole.clientHeight) {
+				pole.style.height = `${pole.scrollHeight}px`;
+			}
+		}
+	</script>
+
+	<textarea oninput="orazmeri(this)" spellcheck="false" style="width: 100%; resize: none" id="tekstovo-pole"></textarea>
+	<br>
+	<button onclick="xlyokaviziray()">xlyokaviziray!</button>
+	<button onclick="kiriliziray()">кирилизирай!</button>
+</div>
+
+<p>
+Xlyokavicata e nerazdelna i interesna qast ot bwlgarskata kultura. V tazi statiya razglejdam
+razliqni stilove, predlagam nov takwv i davam cyalostnoto si mnenie za fenomena, vwpreki qe nikoy
+ne mi go e iskal.
+</p>
+
+<p>
+Statiyata e napisana na predlojeniyat stil, zaxtoto e tematiqno.
+</p>
+
+<h2>Tehniqeski predpostavki</h2>
+
+<p>
+Osnovnata azbuka na telekomunikacionnite sistemi (telefoni, internet i dr.) e angliyskata latinica.
+Tova veroyatno se dwlji na golemiyat prinos na Xtatite kwm razvitieto im, no az ne swm istorik i xte
+ostavya istoriqeskiyat analiz drugimu. Pri vsiqki sluqai, navlizaneto na sistemi, poddwrjaxti
+na pwrvo myasto angliyskata latinica, v sredi, kwdeto tya е nedostatwqna, swzdava izvestni problemi.
+Problemi se swzdavat dori za ispancite, koito priemat <em>ñ</em> za bukva, korenno razliqna ot <em>n</em>.
+</p>
+
+<p>
+Osven telekomunikacionnite sistemi, (kato cyalo) nay-bogatite i kulturni dwrjavi pixat na latinica,
+taka qe pone imenata si tryabva da mojem da napixem na tyahnata azbuka.
+</p>
+
+<h2>Kulturni predpostavki</h2>
+
+<p>
+Ograniqeniyata na telekomunikacionnite sistemi veqe poqti ne swxtestvuvat, a obiknoveniyat qovek
+ryadko tryabva da si napixe imeto, taka qe qujdenec da go proqete. Gledayki samo tezi dva priznaka,
+bihme oqakvali qe poqti nikoy ne pixe na xlyokavica v dnexno vreme. Tova ne e taka.
+</p>
+
+<p>
+Vyarvam qe xlyokavicata ima golyama kulturna i izrazna potrebnost. Neynite potrebiteli qesto ya
+polzvat, za da pridadat neseriozen/priyatelski ton na napisanoto. V tozi smiswl, neynoto izpolzvane
+e podobno na izpuskaneto na prepinatelni znaci, izpolzvaneto na malka bukva v naqaloto na
+izreqenieto i izpolzvaneto na jargonni dumi i frazi.
+</p>
+
+<p>
+Podobno na jargona, toqniyat stil xlyokavica moje da e priznak na podkultura, kwm koyato prinadleji
+swotvetniyat potrebitel -- qovek izpolzvaxt <em>4</em> i <em>6</em> za <em>ч</em> i <em>ш</em> veroyatno e na nad 25 godixna
+vwzrast i baya si e pisal po skype navremeto. Novi stilove izpolzvat <em>x</em> i <em>y</em> za <em>х</em> i <em>у</em>, no az
+ne prinwdleja kwm podkulturite koito gi polzvat, taka qe ne bih mogwl da kaja na kakvo sa priznak.
+</p>
+
+<p>
+Estestveno vseki qovek ima sobstven stil na pisane. V tozi smiswl pisaneto na xlyokavica e
+sebeizrazyavane, koeto ne moje da bwde izpwlneno qrez pisaneto na kirilica.
+</p>
+
+<h2>Kultirni <em>ne</em>postavki</h2>
+
+<p>
+Bwlgarskiyat narod i ezik sa iztoqnikwt na kirilicata, koyato pwk e swzdadena specialno za nego.
+Osven qe kirilicata e kulturno nasledstvo na Bwlgariya, tya prosto e po-udobna. Da ya sravnyavame s
+latinicata e kato da sravnyavame kustyum, premeren i uxit za toqno opredelen qovek, s kustyum ot
+magazina -- kirilicata e premerena i uxita za nas i e po-udobna. Poradi tezi priqini mnogo hora,
+vklyuqitelno i az, sa protiv pisaneto na xlyokavica.
+</p>
+
+<p>
+Edinstvenoto, koeto protivnicite na xlyokavicata mogat da napravyat, e da ne ya polzvat. Tova obaqe
+nyama da spre drugite. Vwpreki qe swm protiv xlyokavicata, swm rexil da uqastvam v neynoto razvitie,
+zaxtoto mi e intersno.
+</p>
+
+<h2>Stilove i razswjdeniya po tyah</h2>
+
+<p>
+V Bwlgarskiyat ezik priswstvat ~12 bukvi, koito trudno se xlyokavizirat. Razliqnite stilove
+sa kombinaciya ot izbori za izpisvaneto na vsyaka ot tyah.
+</p>
+
+<ul>
+	<li>ж -- j, zh, ž</li>
+	<li>й -- j, y, i</li>
+	<li>у -- u, y, ou <em>spored nyakakwv si Andrey Danqev</em></li>
+	<li>х -- h, x, kh <em>spored Velikobritaniya</em></li>
+	<li>ц -- c, ts</li>
+	<li>ч -- ch, č, 4</li>
+	<li>ш -- sh, š, 6</li>
+	<li>щ -- sht, št, 6t</li>
+	<li>ъ -- u, a, e <em>napr, v imeto Dimit<strong>e</strong>r</em></li>
+	<li>ь -- j, y, izyadena</li>
+	<li>ю -- yu, iu, ju, u</li>
+	<li>я -- ya, ia, ja, q</li>
+</ul>
+
+<p>
+Osven tozi katalog, ima i
+<a href="https://dv.parliament.bg/DVWeb/showMaterialDV.jsp?idMat=16943">zakon za transliteraciyata</a>
+Zakonwt za transliteraciyata realno pokriva samo xlyokaviziraneto na imena, no az xte go razglejdam
+vse edno e cyalosten stil na xlyokavica.
+</p>
+
+<p>
+Spored men, dobro xlyokavizirane ima slednite priznaci:
+</p>
+
+<ul>
+	<li>
+		Vwzmojno nay-malko <em>dvuznaci</em> t.e. dve bukvi, znaqexti edin zvuk. Dvuznacite ne sa problem za zapisvaneto na <em>я</em>, <em>ю</em>, i <em>щ</em>, twy kato te sa dva zvuka.
+	</li>
+	<li>Vwzmojno nay-malko izklyuqeniya ot obxtoto pravilo.</li>
+	<li>
+		<strong>Lesno <em>otxlyokavizirane</em></strong> -- dokolkoto znam az swm pwrviyat koyto twrsi takova. Pod
+		<em>otxlyokavizirane</em> imam predvid vwzmojnostta da se vwzstanovi originalniya tekst. Stilovete,
+		otgovaryaxti na tozi priznak mogat da bwdat mnogo polezni za tehniqeski celi.
+  	</li>
+	<li>Izpolzvane samo na angliyskata latinica</li>
+</ul>
+
+<p>
+Ot gorniya spiswk az bih izbral slednata strategiya:
+</p>
+
+<ul>
+	<li>ж -- j</li>
+	<li>й -- y</li>
+	<li>у -- u</li>
+	<li>х -- h</li>
+	<li>ц -- c</li>
+	<li>ч -- ch</li>
+	<li>ш -- sh</li>
+	<li>щ -- sht</li>
+	<li>ъ -- u</li>
+	<li>ь -- y</li>
+	<li>ю -- yu</li>
+	<li>я -- ya</li>
+</ul>
+
+<p>
+Strategiyata ne e perfektna. Ima dva dvuznaka i <em>u</em> se izpolzva za dva zvuka. Zaradi tova e trudna
+za otxlyokavizirane. Davam nyakolko primera:
+</p>
+
+<ul>
+<li>kurvi -- курви, кърви</li>
+<li>shema -- шема, схема</li>
+</ul>
+
+<p>
+Strategiyata e mnogo po-dobra ot zakona za transliteraciyata. Zakonwt glasi slednoto:
+</p>
+
+<ul>
+<li>ж -- zh</li>
+<li>й -- y</li>
+<li>у -- u</li>
+<li>х -- h</li>
+<li>ц -- ts</li>
+<li>ч -- ch</li>
+<li>ш -- sh</li>
+<li>щ -- sht</li>
+<li>ъ -- a, osven v dumata <em>B<strong>u</strong>lgaria</em></li>
+<li>ь -- y</li>
+<li>ю -- yu</li>
+<li>я -- ya, osven v kraya na dumata v swyuza <em>ия</em>, когато се пише <em>ia</em></li>
+</ul>
+
+<p>
+Tova e ot nay-loxite vwzmojni strategii. Ima qetiri dvuznaka, <em>a</em> se izpolzva za dva zvuka i dve
+izklyuqeniya. Liqno az mislya, qe <em>a</em> e ujasno xlyokavizirane na <em>ъ</em>. Zakonwt yavno misli swxtoto,
+zaxtoto tam e edno ot izklyuqeniyata. Osobeno twpo e xlyokaviziraneto na <em>ц</em>, twy kato pozvolyava
+dvusmislieto <em>otselvane → оцелване, отселване</em>. Izklyuqenieto, kasaexto <em>я</em>, e nenujno i samo
+uslojnyava sistemata. Az imam teoriya, qe tazi xlyokavizaciya e naroqno izmislena da e kolkoto se
+moje, po-loxa...
+</p>
+
+<h2>Predlojeniyat ot men stil</h2>
+
+<p>
+Kakto vidyahme ni ostavat tri problema -- <em>ч -- ch</em>, <em>ш -- sh</em> и <em>ъ -- u</em>. Osven tyah ima i tri
+neizpolzvani bukvi ot latinicata -- <em>q</em>, <em>x</em> i <em>w</em>. Nablyudatelniyat qitatel e zabelyazal qe az
+izpolzvam sledniya stil:
+</p>
+
+<ul>
+<li>ж -- j</li>
+<li>й -- y</li>
+<li>у -- u</li>
+<li>х -- h</li>
+<li>ц -- c</li>
+<li>ч -- q</li>
+<li>ш -- x</li>
+<li>щ -- xt</li>
+<li>ъ -- w</li>
+<li>ь -- y</li>
+<li>ю -- yu</li>
+<li>я -- ya</li>
+</ul>
+
+<p>
+Tozi stil e <strong>swvwrxen</strong> spored zadadenite iziskvaniya. Osobeno udoben e kogato krwxtavam faylove na
+kompyutwra si. Naprimer zaglaviyata na statiite v tazi stranica se pazyat na xlyokavica i se
+otxlyokavizirat za da izlizat na kirilica. Izpolzvam go i kogato me mwrzi da si smenya ezika na
+klaviaturata. Swxtestvuva problemwt qe e malko neintuitiven za novi qitateli i qesto me pitat dali
+swm piyan kogato pixa s nego.
+</p>
+
+		</main>
+		<footer>
+			teoet(шест)(маймунско а)protonmail(точка)com
+		</footer>
+	</body>
+</html>
