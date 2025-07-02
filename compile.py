@@ -6,8 +6,8 @@ from lat2cyr import lat2cyr
 with open(Path('template')) as f:
 	template = f.read()
 
-dist = Path('dist')
-shutil.rmtree(dist)
+dist = Path('docs')
+shutil.rmtree(dist, ignore_errors=True)
 dist.mkdir()
 
 shutil.copy2(Path('style.css'), dist)
