@@ -2,15 +2,27 @@ import html
 from pathlib import Path
 import shutil
 from lat2cyr import lat2cyr
+import os
 
 with open(Path('template')) as f:
 	template = f.read()
 
 dist = Path('docs')
-shutil.rmtree(dist, ignore_errors=True)
-dist.mkdir()
+for it in dist.iterdir():
+	if it.name == 'assets':
+		continue
+
+	if it.is_file():
+		os.remove(it)
+	else:
+		shutil.rmtree(it)
+
+dist.mkdir(exist_ok=True)
 
 shutil.copy2(Path('style.css'), dist)
+
+with open(dist/'CNAME', 'w') as f:
+	f.write('totev.xyz')
 
 postlist=''
 
