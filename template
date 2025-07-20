@@ -15,6 +15,7 @@
 			{content}
 		</main>
 		<footer>
+			Последна промяна: {date} </br>
 			teoet(шест)(маймунско а)protonmail(точка)com
 		</footer>
 	</body>
