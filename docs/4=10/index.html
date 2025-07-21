@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>4=10 - Тотев</title>
+		<link href="/style.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<header>
+			<h1><a href="">4=10</a></h1>
+			<h1><a href="/">Тотев</a></h1>
+		</header>
+		<main>
+			<style>
+	#button-matrix {
+		display: flex;
+		flex-direction: column;
+
+		flex: 3 1 0;
+	}
+
+	.button-row {
+		flex: 1 1 0;
+		display: flex;
+	}
+
+	.button-row button {
+		flex: 1 1 0;
+	}
+
+	button:not(:disabled):hover {
+		cursor: pointer;
+	}
+
+	.screen {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	#result {
+		font-size: 4em;
+		height: 1.2em;
+
+		flex: 1 1 0;
+	}
+
+	#expression {
+		min-height: 1.2em;
+		font-size: 2em;
+
+		overflow: hidden;
+
+		flex: 1 1 0;
+	}
+
+	button {
+		font-family: serif;
+		font-size: 2em;
+	}
+
+	.center {
+		text-align: center;
+		align-content: center;
+	}
+
+	#reset {
+		padding: 1em;
+		margin: 1em;
+	}
+</style>
+
+<div class=screen id=play-screen>
+	<div class=center>
+		<div>Изразете десет с четерите едноцифрени числа!</div>
+		<div id=level></div>
+	</div>
+	<div id=result class=center></div>
+	<div id=expression class=center></div>
+
+	<div class=flex-column id=button-matrix>
+		<div class=button-row>
+			<button class="keypad digit-like digit" data-value="1">1</button>
+			<button class="keypad digit-like digit" data-value="3">3</button>
+			<button class="keypad digit-like digit" data-value="3">3</button>
+			<button class="keypad digit-like digit" data-value="7">7</button>
+		</div>
+
+		<div class=button-row>
+			<button class=keypad data-value="+">+</button>
+			<button class=keypad data-value="-">-</button>
+			<button class=keypad data-value="*">*</button>
+			<button class=keypad data-value="/">/</button>
+		</div>
+
+		<div class=button-row>
+			<button class="keypad digit-like" data-value="(">(</button>
+			<button class=keypad              data-value=")">)</button>
+			<button class="keypad bspace">⌫</button>
+			<button class="keypad equal">=</button>
+		</div>
+	</div>
+</div>
+
+<div class=screen id=end-screen>
+	<div class=center>Минахте ги всичките!</div>
+	<div class=center><button id=reset>⟲</button></div>
+</div>
+
+<script>
+	const levels = ["1119","5555","1999","2228","2225","2555","4446","4666","3777","3337","2888","1155","1146","1137","1128","1118","1125","2246","1145","1127","2668","1136","1226","2448","1669","1889","1779","1559","1449","1339","1229","4688","2338","2335","2445","2255","3355","3346","2237","4677","4556","2778","2588","2577","2558","3788","3557","2899","5599","5588","5577","5566","4699","4455","3799","3667","3447","2599","2566","1245","1129","1234","1458","2224","1235","1244","1147","1138","1334","1156","1225","1899","1126","2222","1224","2444","3456","1356","1135","1248","1227","4555","1459","1115","2345","2466","1569","2233","1355","1239","1679","1349","2244","1789","1223","1124","1358","2223","1333","1266","1367","2336","3446","1257","1468","1578","1247","1236","2567","1368","2679","2288","2349","1238","2457","1568","2356","5678","5556","4445","2258","1688","1477","1144","1133","1117","3689","2239","2344","3666","4456","2337","3569","3566","1256","3458","2229","2227","3359","2677","1366","3455","1267","2569","6668","3469","2369","1577","4578","4468","3345","2479","2236","1249","4567","2347","1357","1335","5666","2238","1233","1228","1222","3568","4458","3445","2268","4789","1348","2789","2348","2346","1579","2589","2459","6679","5779","5689","5667","4778","4589","4479","4457","3889","3678","3579","3348","2259","1788","1678","1467","1344","2234","2488","2366","2247","1268","2378","1258","4488","2556","3668","2468","4557","2277","1478","4667","1588","6669","5558","4566","3778","3677","3356","3338","3336","2788","2777","2226","1888","1488","1148","4678","3489","3388","3379","2256","1377","6699","4599","3699","3599","3347","2889","2799","2699","2269","1557","1469","1255","3567","2357","2359","1359","2458","4499","3556","3457","3335","2455","2447","2446","2249","2248","1799","1689","1166","1157","1139","5567","3448","3399","2667","1558","1448","3589","3468","1237","3358","2568","2559","2489","2379","9999","8888","5999","5888","5777","4777","4448","4447","3888","3688","3339","3334","3333","2999","2449","2333","2267","2245","1446","1123","2467","3479","2235","5569","4568","4469","3369","2689","2678","2478","2377","1456","1369","2456","1345","5589","5579","4588","2779","2266","1246","2579","2389","4577","4489","3578","3555","2469","1455","1379","1299","1134","4668","2355","5578","4799","4669","3899","3378","2578","2368","1668","1556","1466","1338","1289","4689","3459","2688","1457","4579","3789","3368","5688","3389","2388","5789","8889","7779","5568","5559","4478","4449","3367","3349","2557","2499","2334","2299","1778","1555","1278","1114","5677","6789","1589","6688","3559","3499","1567","1346","1259","4888","2278","5699","5669","4889","4788","3558","3488","3477","3467","3449","3344","2669","2399","2339","2279","1447","1445","1288","1199","3679","1489","8999","7778","6788","5557","4779","4569","2666","2477","2358","1336","1279","1116","6799","6689","2367","1389","1378","7889","6889","5778","4466","3466","3377","3366","1599","1566","1388","1347","1337","1168","1479","6779","6678","5889","1277","1269","7899","5679","4679","4559","4467","3588","3577","3357","2289","1189","1167","1149","3478","1158"];
+	let expression = [];
+
+	const $ = (sel, el=document) => el.querySelector(sel);
+	const $$ = (sel, el=document) => el.querySelectorAll(sel);
+
+	const gcd = (a, b) => {
+		if (a > b) [a, b] = [b, a];
+		while (a > 0) {
+			let tmp = b % a;
+			b = a;
+			a = tmp;
+		}
+		return b;
+	}
+
+	const ratio = (p, q) => {
+		if (q == 0) return null;
+		const g = gcd(Math.abs(p), Math.abs(q));
+		return [p/g*Math.sign(q), q/g*Math.sign(q)];
+	}
+
+	const isInt = (x) => Number.isInteger(Number(x));
+
+	const getLevelIdx = () => {
+		const idx = window.localStorage.getItem('levelIdx');
+		if (idx === null) return 0;
+		else return Number(idx);
+	}
+
+	const update = () => {
+		const text = expression.map(it => it.dataset.value).join('');
+
+		$('#expression').innerText = text;
+
+		let resultIsTen;
+
+		level: {
+			const levelIdx = getLevelIdx() + 1;
+			$('#level').innerText = `[${levelIdx}/${levels.length}]`;
+
+			if (levelIdx > levels.length) {
+				$('#play-screen').style.display = 'none';
+				$('#end-screen').style.display = '';
+			} else {
+				$('#play-screen').style.display = '';
+				$('#end-screen').style.display = 'none';
+			}
+		}
+
+		result: {
+			const numstack = [];
+			const opstack = [];
+
+			const prec = {
+				'+': 1,
+				'-': 1,
+				'*': 2,
+				'/': 2,
+			};
+
+			const apply = (op) => {
+				if (numstack.length < 2) return;
+
+				const rhs = numstack.pop();
+				const lhs = numstack.pop();
+
+				if (rhs === null || lhs === null) {
+					op.push(null);
+					return;
+				}
+
+				const [lp, lq] = lhs;
+				const [rp, rq] = rhs;
+
+				if (op === '+') return numstack.push(ratio(lp * rq + rp * lq, lq * rq));
+				if (op === '-') return numstack.push(ratio(lp * rq - rp * lq, lq * rq));
+				if (op === '*') return numstack.push(ratio(lp * rp, lq * rq));
+				if (op === '/') return numstack.push(ratio(lp * rq, lq * rp));
+
+				numstack.push(lhs);
+				numstack.push(rhs);
+			}
+
+			let lastNum = -1;
+			for (let i = 0; i < text.length; i += 1) if (isInt(text[i])) lastNum = i;
+
+			for (const it of text.slice(0, lastNum+1)) {
+				if (it == '(') {
+					opstack.push(it);
+					continue;
+				}
+
+				if (it == ')') {
+					while (opstack.length > 0 && opstack[opstack.length - 1] != '(') {
+						apply(opstack.pop());
+					}
+					opstack.pop();
+					continue;
+				}
+
+				if (isInt(it)) {
+					numstack.push([Number(it), 1]);
+					continue;
+				}
+
+				console.assert(it in prec, it);
+
+				while (opstack.length > 0 && prec[opstack[opstack.length-1]] >= prec[it]) {
+					apply(opstack.pop());
+				}
+				opstack.push(it);
+			}
+
+			while (opstack.length > 0) {
+				apply(opstack.pop());
+			}
+
+			if (numstack.length > 1) console.log('bad numstack: ', text, numstack.join(' '));
+
+			$('#result').innerText = '';
+
+			if (numstack.length == 0) {
+				$('#result').innerText = '0';
+				break result;
+			}
+
+			const result = numstack[0];
+
+			if (result === null) {
+				$('#result').innerText = 'E';
+				break result;
+			}
+
+			if (result[0] == 10 && result[1] == 1) resultIsTen = true;
+
+			if (result[1] == 1) {
+				$('#result').innerText = numstack[0][0];
+				break result;
+			}
+
+			$('#result').innerText = result[0] + ' / ' + result[1];
+
+		}
+
+		keypad: {
+			const last = text.slice(-1);
+			const allowDigit = ['', '+', '-', '*', '/', '('].includes(last);
+
+			for (const it of $$('.keypad')) {
+				it.disabled = it.classList.contains('digit-like') != allowDigit;
+			}
+
+			let numOnce = 0;
+
+			for (it of expression) {
+				if (it.classList.contains('digit')) {
+					numOnce += 1;
+					it.disabled = true;
+				}
+			}
+
+			$('.bspace').disabled = false;
+			$('.equal').disabled = !(numOnce == 4 && resultIsTen);
+		}
+
+	}
+
+	const loadCurr = () => {
+		expression = [];
+
+		const idx = getLevelIdx();
+
+		if (idx >= levels.length) return;
+
+		const level = levels[idx];
+
+		digitButtons = $$('.digit');
+
+		for (let i = 0; i < 4; i += 1) {
+			digitButtons[i].innerText = level[i];
+			digitButtons[i].dataset.value = level[i];
+		}
+	}
+
+	const loadNext = () => {
+		window.localStorage.setItem('levelIdx', getLevelIdx() + 1);
+		loadCurr();
+	}
+
+	const type = (el) => {
+		if      (el.classList.contains('equal'))  loadNext();
+		else if (el.classList.contains('bspace')) expression.pop();
+		else                                      expression.push(el);
+		update();
+	}
+
+	loadCurr();
+	update();
+
+	for (const it of $$('.keypad')) {
+		it.onclick = () => type(it);
+	}
+
+	$('#reset').onclick = () => {
+		window.localStorage.setItem('levelIdx', 0);
+		loadCurr();
+		update();
+	}
+</script>
+
+		</main>
+	</body>
+</html>
