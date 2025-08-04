@@ -82,6 +82,8 @@ def print_solutions(nums):
 			if is_ten(f(g(a, b), h(c, d))): print(f'({f.__name__}({g.__name__}({a}, {b}), {h.__name__}({c}, {d}))')
 			if is_ten(f(a, g(h(b, c), d))): print(f'({f.__name__}({a}, {g.__name__}({h.__name__}({b}, {c}), {d}))')
 			if is_ten(f(a, g(b, h(c, d)))): print(f'({f.__name__}({a}, {g.__name__}({b}, {h.__name__}({c}, {d})))')
+
+print(count_solutions((3, 4, 7, 9)))
 			
 
 if __name__ == '__main__':
