@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang=bg>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Хексичните Числа - Тотев</title>
+		<link href="/style.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<header>
+			<h1><a href="">Хексичните Числа</a></h1>
+			<h1><a href="/">Тотев</a></h1>
+		</header>
+		<main>
+			<style>
+	table {
+		border-spacing: 1em 0;
+	}
+
+	td:nth-child(1) {
+		font-weight: bold;
+		text-align: right;
+		font-family: monospace;
+	}
+
+	td:nth-child(2) {
+		margin-left: 1em;
+		font-style: italic;
+	}
+
+	tt {
+		font-weight: bold;
+	}
+</style>
+
+<div>
+	<textarea oninput="resize(this)" spellcheck="false" style="width: 100%; resize: none" id="textarea">две, три, пет, седем, найс, цвет, хекс и едно, хекс и три, хекс и седем, хекс и цвет, хекс и пул, двехекс и пет, ...&#xa;&#xa;2a</textarea>
+	<button onclick="flip()">обърни!</button>
+
+	<script>
+		'use strict'
+
+		const resize = (textarea) => {
+			if (textarea.scrollHeight > textarea.clientHeight) {
+				textarea.style.height = `${textarea.scrollHeight}px`;
+			}
+		}
+
+		const getPushable = (a, x) => {
+			const dict = {
+				"нула"       : 0x0,
+				"едно"       : 0x1,
+				"две"        : 0x2,
+				"три"        : 0x3,
+				"четири"     : 0x4,
+				"пет"        : 0x5,
+				"шест"       : 0x6,
+				"седем"      : 0x7,
+				"осем"       : 0x8,
+				"девет"      : 0x9,
+				"десет"      : 0xa,
+				"найс"       : 0xb,
+				"дуз"        : 0xc,
+				"цвет"       : 0xd,
+				"соне"       : 0xe,
+				"пул"        : 0xf,
+				"хекс"       : 0x10,
+				"двехекс"    : 0x20,
+				"трихекс"    : 0x30,
+				"четирихекс" : 0x40,
+				"петхекс"    : 0x50,
+				"шестхекс"   : 0x60,
+				"седемхекс"  : 0x70,
+				"осемхекс"   : 0x80,
+				"деветхекс"  : 0x90,
+				"десетхекс"  : 0xa0,
+				"найсхекс"   : 0xb0,
+				"дузхекс"    : 0xc0,
+				"цветхекс"   : 0xd0,
+				"сонехекс"   : 0xe0,
+				"пулхекс"    : 0xf0,
+				"байт"       : 0x100,
+				"шорт"       : 0x1_0000,
+				"инт"        : 0x1_0000_0000,
+				"лонг"       : 0x1_0000_0000_0000_0000,
+			};
+
+			x = x.toLowerCase();
+
+			if (!Object.hasOwn(dict, x)) return null;
+			let n = dict[x];
+
+			if (a.length == 0) return n;
+
+			if (n == 0) return null;
+			if (a[0] == 0) return null;
+
+			if (n <  0x10) return a[a.length - 1] >= 0x10  ? n : null;
+			if (n < 0x100) return a[a.length - 1] >= 0x100 ? n : null;
+
+			for (let i = a.length - 1; i >= 0; i -= 1) {
+				if (a[i] > n) return n;
+				if (a[i] == n) return null;
+			}
+
+			return n;
+		}
+
+		const interpret = (a0) => {
+			let a = [];
+
+			for (let i = 0; i < a0.length; i += 1) {
+				if (a0[i] >= 0x100 && (i == 0 || a0[i-1] >= a0[i])) a.push(1);
+				a.push(a0[i]);
+			}
+
+			a = a.map(BigInt);
+
+			let ns = [];
+
+			for (const x of a) {
+				if (x < 0x100) {
+					ns.push(x);
+				} else {
+					while (ns.length >= 2 && ns[ns.length-2] < x) ns.push(ns.pop()+ns.pop());
+					ns.push(ns.pop() * x);
+				}
+			}
+
+			let n = 0n;
+			for (const x of ns) n += x;
+			return n;
+		}
+
+		const say = (s0) => {
+			s0 = s0.toLowerCase();
+
+			let s = "";
+			for (const c of s0) s = c + s;
+
+			s = s.replaceAll("_", "");
+			if (!/([0-9]|[a-f])+/.test(s)) return null;
+			s = s.replace(/0*$/, "");
+
+			if (!s) return "нула";
+
+			const dict = {
+				"0": "",
+				"1": "едно",
+				"2": "две",
+				"3": "три",
+				"4": "четири",
+				"5": "пет",
+				"6": "шест",
+				"7": "седем",
+				"8": "осем",
+				"9": "девет",
+				"a": "десет",
+				"b": "найс",
+				"c": "дуз",
+				"d": "цвет",
+				"e": "соне",
+				"f": "пул",
+			};
+
+			let a = [];
+			for (const c of s) a.push(dict[c]);
+
+			const pairmap = (a, f) => {
+				const b = [];
+				for (let i = 0; i < a.length; i += 2) {
+					const x = a[i];
+					const y = i + 1 < a.length ? a[i+1] : "";
+					b.push(f(x, y));
+				}
+				return b;
+			}
+
+			for (const word of ["хекс", "байт", "шорт", "инт", "лонг"]) {
+				a = pairmap(a, (x, y) => {
+					if (y == "") return x;
+
+					if (y == "едно") y = word;
+					else             y = y + (word == "хекс" ? "" : " ") + word;
+
+					if (x == "") return y;
+
+					if (x.search(" ") == -1) x = " и " + x;
+					else                     x = " " + x;
+
+					return y + x;
+				});
+			}
+
+			if (a.length != 1) return null;
+			return a[0];
+		}
+
+		const tokMerge = (tok) => {
+			const WS = 0;
+			const TXT = 1;
+
+			const a = [];
+
+			for (let i = 0; i < tok[TXT].length; i += 1) {
+				a.push(tok[WS][i]);
+				a.push(tok[TXT][i]);
+			}
+			a.push(tok[WS][tok[WS].length-1]);
+
+			return a;
+		}
+
+		const flip = () => {
+			const input = document.getElementById("textarea").value;
+
+			const WS = 0;
+			const TXT = 1;
+
+			let prev = WS;
+			let tok = [];
+			tok[WS] = [''];
+			tok[TXT] = [];
+
+			for (const c of input) {
+				let curr = /\p{L}|\d|_/u.test(c) ? TXT : WS;
+
+				if (curr != prev) {
+					tok[curr].push('');
+					prev = curr;
+				}
+				tok[curr][tok[curr].length-1] += c;
+			}
+
+			if (prev == TXT) tok[WS].push('');
+
+			{
+				let tok2 = [];
+				tok2[WS] = [];
+				tok2[TXT] = [];
+
+				for (let i = 0; i < tok[TXT].length; i += 1) {
+					if (/^(\p{White_Space})*$/u.test(tok[WS][i])) {
+						tok2[WS].push(tok[WS][i]);
+					} else {
+						tok2[WS].push('');
+						tok2[TXT].push(tok[WS][i]);
+						tok2[WS].push('');
+					}
+					tok2[TXT].push(tok[TXT][i]);
+				}
+				tok2[WS].push(tok[WS][tok[WS].length-1]);
+
+				tok = tok2;
+			}
+
+			{
+				let tok2 = [];
+				tok2[WS] = [''];
+				tok2[TXT] = [];
+
+				for (let i = 0; i < tok[TXT].length; i += 1) {
+					tok2[WS][tok2[WS].length-1] += tok[WS][i];
+					if (tok[TXT][i].toLowerCase() == 'и') {
+						tok2[WS][tok2[WS].length-1] += tok[TXT][i];
+					} else {
+						tok2[TXT].push(tok[TXT][i]);
+						tok2[WS].push('');
+					}
+				}
+				tok2[WS][tok2[WS].length-1] += tok[WS][tok[WS].length-1];
+
+				tok = tok2;
+			}
+
+			let output = "";
+			let active = [];
+
+			for (let i = 0; i < tok[TXT].length; i += 1) {
+				let it = tok[TXT][i];
+
+				let n = getPushable(active, it);
+
+				if (n == null) {
+					if (active.length) output += interpret(active).toString(16);
+					active = [];
+					n = getPushable(active, it);
+				}
+
+				if (n == null || active.length == 0) output += tok[WS][i];
+
+				if (n == null) {
+					const s = say(it);
+					output += s == null ? tok[TXT][i] : s;
+				} else {
+					active.push(n);
+				}
+			}
+
+			if (active.length) output += interpret(active).toString(16);
+			active = [];
+			output += tok[WS][tok[WS].length-1];
+
+			const textarea = document.getElementById("textarea");
+			textarea.value = output;
+		}
+
+		resize(document.getElementById("textarea"));
+	</script>
+</div>
+
+<center>
+<table>
+	<tr> <td>                    0</td> <td>нула  </td> </tr>
+	<tr> <td>                    1</td> <td>едно  </td> </tr>
+	<tr> <td>                    2</td> <td>две   </td> </tr>
+	<tr> <td>                    3</td> <td>три   </td> </tr>
+	<tr> <td>                    4</td> <td>четири</td> </tr>
+	<tr> <td>                    5</td> <td>пет   </td> </tr>
+	<tr> <td>                    6</td> <td>шест  </td> </tr>
+	<tr> <td>                    7</td> <td>седем </td> </tr>
+	<tr> <td>                    8</td> <td>осем  </td> </tr>
+	<tr> <td>                    9</td> <td>девет </td> </tr>
+	<tr> <td>                    a</td> <td>десет </td> </tr>
+	<tr> <td>                    b</td> <td>найс  </td> <td>еди<strong>найс</strong>eт</td> </tr>
+	<tr> <td>                    c</td> <td>дуз   </td> <td><strong>дуз</strong>ина</td> </tr>
+	<tr> <td>                    d</td> <td>цвет  </td> <td>карти в боя от тесте</td> </tr>
+	<tr> <td>                    e</td> <td>сонѐ  </td> <td>сонетът е кратка поема от толкова стиха</td> </tr>
+	<tr> <td>                    f</td> <td>пул   </td> <td>цветни топки в билярда</td> </tr>
+	<tr> <td>                   10</td> <td>хекс  </td> <td>:)</td> </tr>
+	<tr> <td>                  100</td> <td>байт  </td> <td>2⁸</td> </tr>
+	<tr> <td>               1_0000</td> <td>шорт  </td> <td>2¹⁶</td> </tr>
+	<tr> <td>          1_0000_0000</td> <td>инт   </td> <td>2³²</td> </tr>
+	<tr> <td>1_0000_0000_0000_0000</td> <td>лонг  </td> <td>2⁶⁴</td> </tr>
+</table>
+</center>
+
+<p>
+Първо казваме множителя на степента и после събираемото. И множителя и събираемото имат степени по малки от „голямата“ степен. Например:
+<center>
+<tt>123456789abcdef</tt> <br>
+<tt>1234567</tt>·2³² + <tt>89abcdef</tt> <br>
+(<tt>123</tt>·2¹⁶ + <tt>4567</tt>)·2³² + (<tt>89ab</tt>·2¹⁶ + <tt>cdef</tt>) <br>
+((<tt>1</tt>·2⁸ + <tt>23</tt>)·2¹⁶ + <tt>45</tt>·2⁸ + <tt>67</tt>)·2³² + ((<tt>89</tt>·2⁸ + <tt>ab</tt>)·2¹⁶ + <tt>cd</tt>·2⁸ + <tt>ef</tt>) <br>
+((<tt>1</tt> байт <tt>23</tt>) шорт <tt>45</tt> байт <tt>67</tt>) инт ((<tt>89</tt> байт <tt>ab</tt>) шорт <tt>cd</tt> байт <tt>ef</tt>) <br>
+<em>байт двехекс и три шорт четирихекс и пет байт шестхекс и седем инт осемхекс и девет байт десетхекс и найс шорт дузхекс и цвет байт сонехекс и пул</em> <br>
+</center>
+</p>
+
+<p>
+Ето и някои известни или интересни числа:
+<ul>
+<li> <a href="https://en.wikipedia.org/wiki/Prime_number">Простите</a> <em>две, три, пет, седем, найс, цвет, хекс и едно, хекс и три, хекс и седем, хекс и цвет, хекс и пул, двехекс и пет, ...</em> </li>
+<li> <a href="https://en.wikipedia.org/wiki/Power_of_two">Степени на двойката</a> <em>едно, две, четири, осем, хекс, двехекс, четирихекс, осемхекс, байт, ..., осем байт, хекс байт ..., осемхекс байт, шорт, ...</em> </li>
+<li> <a href="https://en.wikipedia.org/wiki/Square_number">Квадрати</a> <em>едно, четири, девет, хекс, хекс и девет, двехекс и четири, трихекс и едно, четирихекс, петхекс и едно, шестхекс и четири, седемхекс и девет, деветхекс, десетхекс и девет, дузхекс и четири, сонехекс и едно, байт, ...</em> </li>
+<li> <a href="https://en.wikipedia.org/wiki/Power_of_10">Степени на десетката</a> <em>едно, десет, шестхекс и четири, три байт сонехекс и осем, двехекс и седем байт и хекс, ...</em> </li>
+<li> <a href="https://en.wikipedia.org/wiki/Fibonacci_sequence">Числата на Фибоначи</a> <em>нула, едно, едно, две, три, пет, осем, цвет, хекс и пет, двехекс и две, трихекс и седем, петхекс и девет, деветхекс, сонехекс и девет, байт седемхекс и девет, ...</em> </li>
+<li> <a href="https://en.wikipedia.org/wiki/Pi">Константата <i>π</i></a> <em>три цяло две четири три пул шест десет осем осем осем пет десет три нула осем цвет...</em> </li>
+<li> <a href="https://en.wikipedia.org/wiki/E_(mathematical_constant)">Неперовото число <i>e</i></a> <em>две цяло найс седем соне едно пет едно шест две осем десет соне цвет две десет седем...</em> </li>
+<li> <a href="https://en.wikipedia.org/wiki/Speed_of_light">Скоростта на светлината във вакуум</a> <em>хекс и едно байт цветхекс и соне шорт седемхекс и осем байт четирихекс и десет м/с</em> </li>
+<li> <a href="https://en.wikipedia.org/wiki/Second">Честотата на лъчението, съответстващо на прехода между две свръхфини нива на основното състояние на атома на цезий осемхекс и пет</a> <em>две инт двехекс и три байт сонехекс и дуз шорт шестхекс и цвет байт цветхекс и десет Хц</em> </li>
+</ul>
+</p>
+
+		</main>
+	</body>
+</html>
